@@ -1,4 +1,4 @@
-Clone this to your home directory (or wherever)
+Clone this to your home directory (or wherever):
 
 ```bash
 git clone git@github.com:daradermody/rc-files.git .rc_files
