@@ -1,0 +1,56 @@
+#!/usr/bin/bash
+
+# Source Git completion
+source $(dirname "${BASH_SOURCE[0]}")/git-completion.bash
+
+# Default to human readable figures and colours
+alias df='df -h'
+alias du='du -ch'
+alias grep='/bin/grep --color' # show differences in colour
+alias egrep='/bin/egrep --color=auto' # show differences in colour
+alias fgrep='/bin/fgrep --color=auto' # show differences in colour
+alias watch='watch --color'
+alias ls='ls -hF --color=tty' # classify files in colour
+alias matrix='cmatrix -abxu 3' # Some fun
+alias rick_rolled='curl -L http://bit.ly/10hA8iC | bash' # Some fun
+alias idk='echo "¯\_(ツ)_/¯" | xclip -selection clipboard && echo "¯\_(ツ)_/¯"'
+
+
+# General Linux usability
+alias update='sudo apt update'
+alias upgrade='sudo sh -c "apt update && apt --yes dist-upgrade && apt clean"'
+alias i='sudo apt install'
+alias ping='prettyping --nolegend'
+alias nesh='nesh --eval ~/.rc_files/nesh_startup.js'
+alias sql='mysql -uroot -ppassword testdatabase'
+
+# Git
+alias gs='git status'
+__git_complete gc _git_checkout # Enable tab completion for the gc alias
+alias gc='git checkout'
+__git_complete gd _git_diff
+alias gd='git diff --color-words'
+__git_complete gp _git_pull
+alias gp='git pull'
+__git_complete gm _git_merge
+alias gm='git merge'
+__git_complete gm _git_add
+alias ga='git add --all'
+
+alias noder='/home/dara/.nvm/versions/node/v10.6.0/bin/node'
+
+# Docker
+alias d='sudo docker'
+alias docker='sudo docker'
+complete -F _docker d
+alias dl='d container ls -a'
+complete -F _docker_conatiner_ls dl
+function db() {
+    d exec -it $1 bash
+}
+complete -F _docker_exec db
+
+
+alias showgremlin='ps -ef | grep gremlin'
+alias killgremlin="ps -ef | grep gremlin | grep -v grep | awk '{print \$2}' | sudo xargs kill"
+alias rn='react-native'

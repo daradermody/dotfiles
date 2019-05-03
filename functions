@@ -1,0 +1,28 @@
+#!/usr/bin/bash
+
+function g() {
+    if [[ $# != 1 ]] ; then
+        echo  -e "Usage: $FUNCNAME <pattern>\n" \
+                 " Recursively searches for pattern given (case insensitive)"
+        return 1
+    fi
+    grep --color=always -rin "$*" *
+
+}
+
+function f() {
+    if [[ $# != 1 ]] ; then
+        echo -e "Usage: $FUNCNAME <pattern>\n" \
+                " Finds file name with pattern from the current directory (case insensitive)"
+        return 1
+    fi
+
+    find . -iname "$*"
+}
+
+function reset_webstorm_trial() {
+    rm ~/.WebStorm*/config/eval/WebStorm*.evaluation.key
+    sed -i '/evlsprt/d' ~/.WebStorm*/config/options/options.xml
+    rm -rf ~/.java/.userPrefs/jetbrains/webstorm/
+}
+

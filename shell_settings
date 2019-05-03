@@ -1,0 +1,15 @@
+#!/usr/bin/bash
+
+HISTFILESIZE=10000 # Retain history of all commands in multiple terminals (and cc views)
+export HISTSIZE PROMPT_COMMAND
+shopt -s histappend # Append to the history file instead of overwriting
+shopt -s cdspell # Ignore typos when changing directories
+export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups # Don't put duplicate lines in the history.
+export HISTIGNORE=$'[ \t]*:&:[fb]g:exit' # Ignore some controlling instructions
+
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)" # Make less more friendly for non-text input files
+shopt -s checkwinsize # Adapt to window size after each command
+(( ${BASH_VERSION%%[^0-9]*} > 3 )) && shopt -s globstar # '**' will match all files in zero or more directories (Bash 4.x only)
+set noclobber; # Don't allow overwriting of existing files
+set autolist; # Enable TAB 'double tap' to display all options
+set autologout=0 # Disable automatic logout from the console from inactivity
