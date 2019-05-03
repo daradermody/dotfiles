@@ -44,6 +44,5 @@ function __set_bash_prompt() {
     PS1=$(__get_prompt)
 }
 
-source $(dirname "${BASH_SOURCE[0]}")/git-prompt.sh
 PROMPT_COMMAND=__set_bash_prompt
 

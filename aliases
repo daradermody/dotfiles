@@ -45,6 +45,7 @@ alias docker='sudo docker'
 complete -F _docker d
 alias dl='d container ls -a'
 complete -F _docker_conatiner_ls dl
+# Utility to bash into a docker container (db => Docker bash)
 function db() {
     d exec -it $1 bash
 }
@@ -53,4 +54,3 @@ complete -F _docker_exec db
 
 alias showgremlin='ps -ef | grep gremlin'
 alias killgremlin="ps -ef | grep gremlin | grep -v grep | awk '{print \$2}' | sudo xargs kill"
-alias rn='react-native'
