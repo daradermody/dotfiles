@@ -1,0 +1,4 @@
+$include /etc/inputrc
+"\C-p":history-search-backward
+"\C-n":history-search-forward
+

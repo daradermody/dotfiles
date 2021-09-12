@@ -1,14 +1,13 @@
 #!/usr/bin/bash
 
-source ~/.rc_files/prompt
-
 umask 002
 export SHELL=$(type -p bash)
 export LESS="-R $LESS"
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && source /usr/share/bash-completion/bash_completion
 export CDPATH=~/git/ # Allows you to 'cd <repo>' from anywhere!
 export EDITOR=vim
-export PYTHONSTARTUP=~/.rc_files/python_startup.py
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+export PYTHONSTARTUP="${DIR}/assets/python_startup.py"
 export PIP_USER=true # So pip installs to ~/.local/lib
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 

@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
-# Source Git completion
-source $(dirname "${BASH_SOURCE[0]}")/git-completion.bash
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+source "${DIR}/../assets/git-completion.bash"
 
 # Default to human readable figures and colours
 alias df='df -h'
