@@ -2,7 +2,12 @@
 
 # Setup scripts and determine base directory
 if [[ $0 == "bash" ]] ; then
-  git clone git@github.com:daradermody/dotfiles ~/.dotfiles
+  if [[ -e ~/.dotfiles ]] ; then
+    cd ~/.dotfiles
+    git pull
+  else
+    git clone git@github.com:daradermody/dotfiles ~/.dotfiles
+  fi
   BASE=~/.dotfiles
 else
   BASE="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
