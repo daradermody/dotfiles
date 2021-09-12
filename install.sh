@@ -6,9 +6,9 @@ set -e
 if [[ $0 == "bash" ]] ; then
   if [[ -e ~/.dotfiles ]] ; then
     cd ~/.dotfiles
-    git --quiet pull
+    git pull --quiet
   else
-    git --quiet clone git@github.com:daradermody/dotfiles ~/.dotfiles
+    git clone --quiet git@github.com:daradermody/dotfiles ~/.dotfiles
   fi
   BASE=~/.dotfiles
 else
