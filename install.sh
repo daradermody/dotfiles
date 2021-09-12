@@ -1,12 +1,14 @@
 #!/bin/bash
 
+set -e
+
 # Setup scripts and determine base directory
 if [[ $0 == "bash" ]] ; then
   if [[ -e ~/.dotfiles ]] ; then
     cd ~/.dotfiles
-    git pull
+    git --quiet pull
   else
-    git clone git@github.com:daradermody/dotfiles ~/.dotfiles
+    git --quiet clone git@github.com:daradermody/dotfiles ~/.dotfiles
   fi
   BASE=~/.dotfiles
 else
@@ -28,4 +30,6 @@ if ! grep "# Source version-controlled files" ~/.bashrc > /dev/null ; then
   echo "# Source version-controlled files" >> ~/.bashrc
   echo -e "for file in \$(find ${BASE}/sourceable/*) ; do source \${file}; done\n" >> ~/.bashrc
 fi
+
+echo "Installed dotfiles!"
 
