@@ -8,7 +8,7 @@ if [[ $0 == "bash" ]] ; then
     cd ~/.dotfiles
     git pull --quiet
   else
-    git clone --quiet git@github.com:daradermody/dotfiles ~/.dotfiles
+    git clone --quiet https://github.com/daradermody/dotfiles.git ~/.dotfiles
   fi
   BASE=~/.dotfiles
 else
